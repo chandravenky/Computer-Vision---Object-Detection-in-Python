@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 28 11:37:27 2019
+
+@author: vchan
+"""
+
+# import libraries of python OpenCV
+import cv2
+import face_recognition
+
+# capture frames from a video
+cap = cv2.VideoCapture( r'/Users/venkateshchandra/Desktop/Computer_vision/people_presenting.mp4',0)
+
+fourcc = cv2.VideoWriter_fourcc('m','p','4','v')# note the lower case
+
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
+
+out = cv2.VideoWriter('people_presenting_out.mp4',fourcc , 10, (frame_width,frame_height), True)
+# Initialize variables
+face_locations = []
+
+while True:
+    # Grab a single frame of video
+    ret, frame = cap.read()
+
+    # Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+    rgb_frame = frame[:, :, ::-1]
+
+    # Find all the faces in the current frame of video
+    face_locations = face_recognition.face_locations(rgb_frame)
+
+    # Display the results
+    for top, right, bottom, left in face_locations:
+        # Draw a box around the face
+        cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+
+    # Display the resulting image
+    cv2.imshow('Video', frame)
+    
+    out.write(frame)
+    
+    # Wait for Enter key to stop
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+      break
+
+# Release everything if job is finished
+cap.release()
+out.release()
+cv2.destroyAllWindows()
+
+
