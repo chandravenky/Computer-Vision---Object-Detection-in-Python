@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 28 11:40:13 2019
+
+@author: vchan
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 28 11:37:27 2019
+
+@author: vchan
+"""
+
+# OpenCV Python program to detect cars in video frame
+# import libraries of python OpenCV
+import cv2
+import matplotlib.pyplot as plt
+
+# capture frames from a video
+cap = cv2.imread(r'C:\Users\vchan\OneDrive\Desktop\Untitled Folder\carimage.jpeg', 1)
+
+
+# Trained XML classifiers describes some features of some object we want to detect
+car_cascade = cv2.CascadeClassifier( r'C:\Users\vchan\OneDrive\Desktop\Untitled Folder\cars.xml')
+
+gray = cv2.cvtColor(cap, cv2.COLOR_BGR2GRAY)
+
+# Detect cars
+cars = car_cascade.detectMultiScale(gray, 1.1, 1)
+
+ncars=0
+# Draw border
+for (x, y, w, h) in cars:
+    cv2.rectangle(cap, (x,y), (x+w,y+h), (0,0,255), 2)
+    ncars = ncars + 1
+
+# Show image
+
+plt.figure(figsize=(10,20))
+plt.imshow(cap)
+plt.savefig('detection.png')
