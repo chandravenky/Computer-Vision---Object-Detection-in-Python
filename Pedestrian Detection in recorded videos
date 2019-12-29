@@ -33,3 +33,6 @@ while True:
     # Wait for Enter key to stop
     if cv2.waitKey(33) == 13:
         break
+
+cap.release()
+cv2.destroyAllWindows()
