@@ -5,22 +5,22 @@ Created on Sat Dec 28 11:47:27 2019
 @author: vchan
 """
 
-# OpenCV Python program to detect cars in video frame
+# OpenCV Python program to detect pedestrians in video frame
 # import libraries of python OpenCV
 import cv2
 
 # capture frames from a video
-cap = cv2.VideoCapture( r'/Users/venkateshchandra/Desktop/Computer_vision/people_presenting.mp4',0)
+cap = cv2.VideoCapture( r'/Users/venkateshchandra/Desktop/Computer_vision/face.mp4',0)
 
 fourcc = cv2.VideoWriter_fourcc('m','p','4','v')# note the lower case
 
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 
-out = cv2.VideoWriter('car_detection_out.mp4',fourcc , 10, (frame_width,frame_height), True)
+out = cv2.VideoWriter('pedestrian_out.mp4',fourcc , 10, (frame_width,frame_height), True)
 
 # Trained XML classifiers describes some features of some object we want to detect
-car_cascade = cv2.CascadeClassifier(r'/Users/venkateshchandra/Desktop/Computer_vision/haarcascade_fullbody.xml')
+pd_cascade = cv2.CascadeClassifier(r'/Users/venkateshchandra/Desktop/Computer_vision/haarcascade_fullbody.xml')
 
 # loop runs if capturing has been initialized.
 while True:
@@ -28,10 +28,10 @@ while True:
     ret, frames = cap.read()
     # convert to gray scale of each frames
     #gray = cv2.cvtColor(frames, cv2.COLOR_BGR2GRAY)
-    # Detects cars of different sizes in the input image
-    cars = car_cascade.detectMultiScale( frames, 1.1, 1)
-    # To draw a rectangle in each cars
-    for (x,y,w,h) in cars:
+    # Detects pedestrians of different sizes in the input image
+    pedestrians = pd_cascade.detectMultiScale( frames, 1.1, 1)
+    # To draw a rectangle in each pedestrians
+    for (x,y,w,h) in pedestrians:
         cv2.rectangle(frames,(x,y),(x+w,y+h),(0,255,0),2)
         font = cv2.FONT_HERSHEY_DUPLEX
         cv2.putText(frames, 'Person', (x + 6, y - 6), font, 0.5, (0, 255, 0), 1)
