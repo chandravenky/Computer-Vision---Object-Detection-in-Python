@@ -18,9 +18,3 @@
 
 ## Pedestrian detection
 ![Pedestrian detection](https://user-images.githubusercontent.com/54965123/71628401-c9a7f200-2bc5-11ea-9198-3231dddead79.gif)
-
-
-
-
-
-
