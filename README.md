@@ -1,4 +1,4 @@
-# Computer-Vision---Object-Detection-in-Python
+# Computer-Vision - Object Detection using OpenCV in Python
 ## Object detection (faces, humans, cars) on Windows and macOS
 
 ## Face detection through webcam
