@@ -1,5 +1,11 @@
 # Computer Vision - Object Detection using OpenCV in Python
-## Object detection (faces, humans, cars) on Windows and macOS
+## Object detection/ Masking/ Pathing (faces, humans, cars) on Windows and macOS
+
+## Harry Potter Invisibility Cloak
+![Potter](https://user-images.githubusercontent.com/54965123/76148068-a475ab00-6070-11ea-826e-bda69807e578.PNG)
+
+## Object detection and pathing
+![2](https://user-images.githubusercontent.com/54965123/76148069-a6d80500-6070-11ea-8b19-ba0d0a535024.PNG)
 
 ## Face detection through webcam
 ![Face Detection Webcam](https://user-images.githubusercontent.com/54965123/71628400-c9a7f200-2bc5-11ea-9507-13f77fbe1ef0.gif)
